@@ -24,9 +24,9 @@ export module StyleGuideDriverNamespace {
          */
         private parseConfig(config: Object) {
             for (let prop in config) {
-                if (prop === 'beg_token') {
+                if (prop === 'beg_comment_token') {
                     this.begCommentToken = config[prop];
-                } else if (prop === 'end_token') {
+                } else if (prop === 'end_comment_token') {
                     this.endCommentToken = config[prop];
                 } else if (prop === 'sortable') {
                     this.styleGuideSet.setSortable(config[prop]);
@@ -73,10 +73,12 @@ export module StyleGuideDriverNamespace {
                 console.log('> ' + line);
 
                 if (line.match(this.begCommentToken)) {
+                    console.log('beg comment token: ' + this.begCommentToken);
                     console.log('found opening comment match');
                 }
 
                 if (line.match(this.endCommentToken)) {
+                    console.log('end comment token: ' + this.endCommentToken);
                     console.log('found closing comment match');
                 }
 
