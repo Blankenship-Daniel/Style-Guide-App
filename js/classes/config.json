@@ -1,0 +1,17 @@
+{
+    "beg_comment_token": "/*",
+    "end_comment_token": "*/",
+    "sortable": "selector",
+    "entries": {
+        "selector": {
+            "beg_token": "#"
+        },
+        "description": {
+            "beg_token": "@desc",
+        },
+        "codeExample": {
+            "beg_token": "<code>",
+            "end_token": "</code>",
+        }
+    }
+}

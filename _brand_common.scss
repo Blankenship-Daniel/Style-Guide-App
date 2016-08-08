@@ -1,0 +1,678 @@
+// CPS Branded Styles
+//
+//  Brand's intended import order:
+//
+//    @import "../common/brand_defaults";
+//    @import "brand_vars";
+//    @import "../common/brand_common";
+/* Import the segregated Sass */
+@import "mixins";
+@import "brand_common_fonts";
+@import "../layouts/header";
+@import "../layouts/nav";
+@import "../layouts/brand_common_layouts";
+@import "../modules/form";
+@import "../modules/brand_common_modules";
+@import "../modules/web_tools";
+@import "../../platform/_platform";
+/* General Settings */
+* {
+    @include box-sizing(border-box);
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+
+    font-size: 1em;
+    line-height: 1.4;
+
+    @include text-size-adjust(100%);
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
+}
+figure {
+    position: relative;
+
+    margin: 1em;
+    padding: 1em;
+
+    text-align: center;
+}
+blockquote {
+    margin: 1em 40px;
+}
+p {
+    margin: 1em 0;
+}
+pre {
+    margin: 1em 0;
+
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+/* Links */
+/*
+# Links
+
+Normal, active and hover states
+
+<code>
+<a href="#">This is a link</a>
+</code>
+*/
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    &:focus {
+        outline: thin dotted;
+    }
+    &:active,
+    &:hover {
+        outline: 0;
+    }
+}
+img {
+    -ms-interpolation-mode: bicubic;
+    border: 0;
+}
+ol,
+ul {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+nav {
+    ol,
+    ul {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+        list-style-image: none;
+    }
+}
+dl {
+    display: inline-block;
+
+    padding: 0 0 0 2.5em;
+    dd,
+    dt {
+        margin: 0;
+    }
+}
+// -- Base = 1024px
+// -- XLarge = ≥ 1200px
+/******** General ********/
+body,
+html {
+    height: 100vh;
+
+    color: $text;
+}
+body {
+    font-family: $fontStack;
+}
+/******** Colors ********/
+.page-back {
+    background-color: $page-back;
+}
+.content-back {
+    background-color: $content-back;
+}
+.panel-back {
+    background-color: $panel-back;
+}
+.primary {
+    background-color: $primary;
+}
+.primary-lt {
+    background-color: $primary-lt;
+}
+.primary-dk {
+    background-color: $primary-dk;
+}
+.alert,
+.notice,
+.primary-text {
+    color: $primary;
+}
+.secondary {
+    background-color: $secondary;
+}
+.secondary-lt {
+    background-color: $secondary-lt;
+}
+.secondary-dk {
+    background-color: $secondary-dk;
+}
+.secondary-text {
+    color: $secondary;
+}
+.white {
+    background-color: $white;
+}
+.white-text {
+    color: $white;
+}
+.nav-vd {
+    background-color: $nav-vd;
+}
+.nav-dk {
+    background-color: $nav-dk;
+}
+.nav {
+    background-color: $nav;
+}
+.heading {
+    background-color: $heading;
+}
+.heading-text {
+    color: $heading;
+}
+.text {
+    background-color: $text;
+}
+.text-text {
+    color: $text;
+}
+.grey-dk {
+    background-color: $grey-dk;
+}
+.grey {
+    background-color: $grey;
+}
+.grey-text {
+    color: $grey;
+}
+.grey-lt {
+    background-color: $grey-lt;
+}
+.grey-lt-text {
+    color: $grey-lt;
+}
+.grey-vl {
+    background-color: $grey-vl;
+}
+.error {
+    color: $error;
+}
+.highlight {
+    background-color: $highlight;
+}
+/******** Typography ********/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $heading;
+
+    font-weight: 400;
+}
+h1 {
+    margin: 1.2em 0 0.8em;
+
+    font-size: 1.6em;
+    &:first-child {
+        margin: {
+            top: 0;
+        }
+    }
+}
+h2 {
+    margin: 1em 0 0.6em;
+
+    font-size: 1.4em;
+}
+h3 {
+    margin: 0.8em 0 0.4em;
+
+    font-size: 1.2em;
+}
+h4 {
+    margin: 0.6em 0 0.2em;
+
+    font-size: 1.1em;
+}
+h5 {
+    margin: 0.5em 0 0;
+
+    font-size: 1em;
+}
+h6,
+h7 {
+    margin: 0.4em 0 0;
+
+    font-size: 0.95em;
+}
+p {
+    font-size: 0.95em;
+    font-weight: 400;
+    line-height: 1.4;
+    &.sm-title {
+        margin-top: 0.5em;
+
+        text-transform: uppercase;
+
+        color: $heading;
+
+        font-size: 0.85em;
+    }
+    &.smtext {
+        margin-top: -10px;
+
+        font-size: 0.8em;
+    }
+}
+.fs9 {
+    font-size: 0.9em;
+}
+/******** Primary Elements ********/
+a {
+    &:link {
+        color: $primary;
+
+        font-weight: 400;
+    }
+    &:visited {
+        color: $highlight;
+
+        font-weight: 400;
+    }
+    &:hover {
+        color: $primary-dk;
+
+        font-weight: 400;
+    }
+}
+ul {
+    margin-top: -4px;
+
+    list-style-type: square;
+
+    font-size: 0.95em;
+}
+.border_color {
+    border-top: 1px solid $grey-lt;
+    border-bottom: 1px solid $grey-lt;
+
+    line-height: 1.5;
+}
+select {
+    color: $grey-dk;
+
+    font-size: 0.9em;
+    font-weight: 300;
+}
+textarea {
+    width: 20em;
+}
+table {
+    border: 0;
+
+    @include box-shadow(0 0 0 0);
+    thead {
+        text-align: center;
+
+        color: $text;
+        background-color: $white;
+
+        font-weight: 700;
+    }
+    td,
+    th {
+        padding: 0.25em 1em;
+
+        border: 0;
+    }
+}
+input[type=date]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+textarea:focus {
+    box-shadow: $brand-form-text-focus-box-shadow;
+}
+fieldset legend {
+    color: $text;
+}
+/* Forms */
+form {
+    margin: 0;
+}
+button,
+input,
+select,
+textarea {
+    margin: 0;
+
+    vertical-align: baseline;
+}
+select {
+    height: 2.25em;
+
+    color: $text;
+    background-color: white;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+
+    color: inherit;
+
+    font: inherit;
+}
+select,
+textarea {
+    display: inline-block;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.5em 0.6em;
+
+    vertical-align: middle;
+
+    border: 1px solid $grey-lt;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px $grey-vl;
+}
+button,
+input {
+    line-height: normal;
+}
+button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+}
+input {
+    &[type="button"],
+    &[type="reset"],
+    &[type="submit"] {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+    }
+}
+button {
+    display: inline-block;
+
+    height: 2em;
+    padding: 0 1em;
+
+    cursor: pointer;
+    -webkit-transition: background-color 200ms ease-out;
+    transition: background-color 200ms ease-out;
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+
+    font-size: 1em;
+    line-height: 1.75em;
+}
+input {
+    &[type="button"],
+    &[type="reset"],
+    &[type="submit"] {
+        display: inline-block;
+
+        height: 2em;
+        padding: 0 1em;
+
+        cursor: pointer;
+        -webkit-transition: background-color 200ms ease-out;
+        transition: background-color 200ms ease-out;
+        text-align: center;
+        vertical-align: top;
+        text-decoration: none;
+
+        font-size: 1em;
+        line-height: 1.75em;
+    }
+}
+//--- Button classes ---
+/*
+# .btn class
+
+Default button class.
+
+<code>
+<button class="btn">.btn or button elements</button>
+</code>
+*/
+/*
+# .btn class
+
+Default button class.
+
+<code>
+<button class="btn">.btn or button elements</button>
+</code>
+*/
+/*
+# .btn_primary class
+
+Primary button classes.
+
+<code>
+<button class="btn_primary">.btn_primary</button>
+<button class="btn_primary inverse">.btn_primary inverse</button>
+</code>
+*/
+/*
+# .btn_active class
+
+Active button class.
+
+<code>
+<button class="btn_active">.btn_active</button>
+</code>
+*/
+/*
+# .btn_inactive class
+
+Inactive button class.
+
+<code>
+<button class="btn_inactive">.btn_inactive or disabled</button>
+</code>
+*/
+/*
+# .btn_secondary class
+
+Secondary button class.
+
+<code>
+<button class="btn_secondary">.btn_secondary</button>
+<button class="btn_secondary inverse">.btn_secondary inverse</button>
+</code>
+*/
+.btn,
+.btn_active,
+.btn_inactive,
+.btn_primary,
+.btn_secondary {
+    display: inline-block;
+
+    height: 2em;
+    padding: 0 1em;
+
+    cursor: pointer;
+    -webkit-transition: background-color 200ms ease-out;
+    transition: background-color 200ms ease-out;
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+
+    font-size: 1em;
+    line-height: 1.75em;
+}
+.btn,
+.btn_active,
+.btn_inactive,
+.btn_primary,
+.btn_secondary {
+    margin: 0;
+}
+button:-moz-focus-inner {
+    padding: 0;
+
+    border: 0;
+}
+input {
+    &:-moz-focus-inner {
+        padding: 0;
+
+        border: 0;
+    }
+    &[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        &:-webkit-search-cancel-button,
+        &:-webkit-search-decoration {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+    }
+    &[type="email"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="text"] {
+        height: 2em;
+
+        color: #6D6E71;
+        // padding: .35em .4em;
+        // border: 1px solid #A7A9AC;
+        outline: 0;
+
+        font-size: 1em;
+    }
+    &[type="email"]:focus,
+    &[type="password"]:focus,
+    &[type="search"]:focus,
+    &[type="text"]:focus {
+        -webkit-transition: all 0.175s ease-in 0;
+        -moz-transition: all 0.175s ease-in 0;
+        -ms-transition: all 0.175s ease-in 0;
+        -o-transition: all 0.175s ease-in 0;
+        transition: all 0.175s ease-in 0;
+    }
+    &[type="color"],
+    &[type="date"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="email"],
+    &[type="month"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="time"],
+    &[type="url"],
+    &[type="week"] {
+        display: inline-block;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 1.1em 0.8em;
+
+        vertical-align: middle;
+
+        border: 1px solid $grey-lt;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 3px $grey-vl;
+    }
+}
+label[for] {
+    cursor: pointer;
+}
+input {
+    &[type="checkbox"],
+    &[type="radio"] {
+        cursor: pointer;
+    }
+}
+fieldset {
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+
+    border: 1px solid #C0C0C0;
+}
+input {
+    &[type="checkbox"],
+    &[type="radio"] {
+        padding: 0;
+    }
+}
+textarea {
+    overflow: auto;
+
+    vertical-align: top;
+}
+/*************** SHOW/HIDE ***************/
+/*
+# .hide-large
+
+Hides the element on the large view only.
+
+<code>
+<p class="hide-large">You won't see this text on the large view.</p>
+</code>
+*/
+.hide-large {
+    display: none;
+}
+/*
+# .show-large
+
+Shows the element on the large view only.
+
+<code>
+<p class="show-large">You will see this text only on the large view.</p>
+</code>
+*/
+/*
+# .hide-default
+
+Hides the element in all views.
+
+<code>
+<p class="hide-default">You won't see this text, but it is there.</p>
+</code>
+*/
+@include mquery(large) {
+    .show-large {
+        display: inherit;
+    }
+    .hide-default {
+        display: none;
+    }
+}
+// Media Queries
+@media (max-width: 767px) {
+    #content {
+        margin-left: 6.5em;
+    }
+}
