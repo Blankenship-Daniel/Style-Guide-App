@@ -1,68 +1,26 @@
 "use strict";
-const StyleGuideCommentEntry_1 = require('./StyleGuideCommentEntry');
-const StyleGuideMatch_1 = require('./StyleGuideMatch');
-const StyleGuideSet_1 = require('./StyleGuideSet');
+const TokenMatch_1 = require('./TokenMatch');
 var StyleGuideDriverNamespace;
 (function (StyleGuideDriverNamespace) {
     class StyleGuideDriver {
-        parseConfig(config) {
-            for (let prop in config) {
-                if (prop === 'beg_comment_token') {
-                    this.begCommentToken = config[prop];
-                }
-                else if (prop === 'end_comment_token') {
-                    this.endCommentToken = config[prop];
-                }
-                else if (prop === 'sortable') {
-                    this.styleGuideSet.setSortable(config[prop]);
-                }
-                else if (prop === 'entries') {
-                    let cfg = config[prop];
-                    for (let prp in cfg) {
-                        let styleGuideCommentEntry = new StyleGuideCommentEntry_1.StyleGuideCommentEntry();
-                        styleGuideCommentEntry.setName(cfg[prop]);
-                        let c = cfg[prp];
-                        let styleGuideMatch = new StyleGuideMatch_1.StyleGuideMatch();
-                        for (let p in c) {
-                            if (p === 'beg_token') {
-                                styleGuideMatch.setBegToken(c[p]);
-                            }
-                            else if (p === 'end_token') {
-                                styleGuideMatch.setEndToken(c[p]);
-                            }
-                        }
-                        this.styleGuideMatchArray.push(styleGuideMatch);
-                    }
-                }
-            }
-            for (let i = 0; i < this.styleGuideMatchArray.length; i++) {
-                console.log(this.styleGuideMatchArray[i].toString());
-            }
-        }
         parseFile(fileName) {
+            let insideComment = false;
             let lineReader = require('readline').createInterface({
                 input: require('fs').createReadStream(fileName)
             });
             lineReader.on('line', function (line) {
-                console.log('> ' + line);
-                if (line.match(this.begCommentToken)) {
-                    console.log('beg comment token: ' + this.begCommentToken);
-                    console.log('found opening comment match');
+                if (line.match(TokenMatch_1.TokenMatch.BEG_COMMENT_TOKEN)) {
+                    insideComment = true;
                 }
-                if (line.match(this.endCommentToken)) {
-                    console.log('end comment token: ' + this.endCommentToken);
-                    console.log('found closing comment match');
+                if (insideComment) {
+                    console.log('> ' + line);
+                }
+                if (line.match(TokenMatch_1.TokenMatch.END_COMMENT_TOKEN)) {
+                    insideComment = false;
                 }
             });
         }
-        contructor() {
-            this.begCommentToken = "";
-            this.endCommentToken = "";
-        }
-        run(config, fileName) {
-            this.styleGuideSet = new StyleGuideSet_1.StyleGuideSet();
-            this.styleGuideMatchArray = new Array();
-            this.parseConfig(config);
+        run(fileName) {
             this.parseFile(fileName);
         }
     }
