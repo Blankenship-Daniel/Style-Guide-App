@@ -6,7 +6,9 @@ var sgDriver = require('./js/classes/StyleGuideDriver.js');
 
 app.get('/', function(req, res) {
     var sg = new sgDriver.StyleGuideDriverNamespace.StyleGuideDriver();
-    sg.run('_brand_common.scss');
+    sg.run('_brand_common.scss', function(json) {
+        console.log(json);
+    });
 
     res.sendFile(path.join(__dirname + '/styleguide.html'));
 });

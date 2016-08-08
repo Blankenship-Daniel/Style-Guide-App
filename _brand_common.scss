@@ -65,9 +65,11 @@ pre {
 }
 /* Links */
 /*
-# Links
+<selector>Links</selector>
 
+<desc>
 Normal, active and hover states
+</desc>
 
 <code>
 <a href="#">This is a link</a>
@@ -451,27 +453,33 @@ input {
 }
 //--- Button classes ---
 /*
-# .btn class
+<selector>.btn class</selector>
 
+<desc>
 Default button class.
+</desc>
 
 <code>
 <button class="btn">.btn or button elements</button>
 </code>
 */
 /*
-# .btn class
+<selector>.btn class</selector>
 
+<desc>
 Default button class.
+</desc>
 
 <code>
 <button class="btn">.btn or button elements</button>
 </code>
 */
 /*
-# .btn_primary class
+<selector>.btn_primary class</selector>
 
+<desc>
 Primary button classes.
+</desc>
 
 <code>
 <button class="btn_primary">.btn_primary</button>
@@ -479,27 +487,33 @@ Primary button classes.
 </code>
 */
 /*
-# .btn_active class
+<selector>.btn_active class</selector>
 
+<desc>
 Active button class.
+</desc>
 
 <code>
 <button class="btn_active">.btn_active</button>
 </code>
 */
 /*
-# .btn_inactive class
+<selector>.btn_inactive class</selector>
 
+<desc>
 Inactive button class.
+</desc>
 
 <code>
 <button class="btn_inactive">.btn_inactive or disabled</button>
 </code>
 */
 /*
-# .btn_secondary class
+<selector>.btn_secondary class</selector>
 
+<desc>
 Secondary button class.
+</desc>
 
 <code>
 <button class="btn_secondary">.btn_secondary</button>
@@ -633,9 +647,11 @@ textarea {
 }
 /*************** SHOW/HIDE ***************/
 /*
-# .hide-large
+<selector>.hide-large</selector>
 
+<desc>
 Hides the element on the large view only.
+</desc>
 
 <code>
 <p class="hide-large">You won't see this text on the large view.</p>
@@ -645,18 +661,33 @@ Hides the element on the large view only.
     display: none;
 }
 /*
-# .show-large
+<selector>.show-large</selector>
 
+<desc>
 Shows the element on the large view only.
+</desc>
 
 <code>
 <p class="show-large">You will see this text only on the large view.</p>
 </code>
 */
 /*
-# .hide-default
+<selector>.hide-default</selector>
 
+<desc>
 Hides the element in all views.
+</desc>
+
+<code>
+<p class="hide-default">You won't see this text, but it is there.</p>
+</code>
+*/
+/*
+<selector>.hide-default</selector>
+
+<desc>
+Hides the element in all views.
+</desc>
 
 <code>
 <p class="hide-default">You won't see this text, but it is there.</p>
