@@ -2,7 +2,7 @@
 const TokenMatch_1 = require('./TokenMatch');
 const Comment_1 = require('./Comment');
 var StyleGuideDriverNamespace;
-(function (StyleGuideDriverNamespace) {
+(function(StyleGuideDriverNamespace) {
     class StyleGuideDriver {
         parseFile(fileName, sortObject, readJson) {
             let insideComment = false;
@@ -12,13 +12,13 @@ var StyleGuideDriverNamespace;
             let lineReader = require('readline').createInterface({
                 input: require('fs').createReadStream(fileName)
             });
-            lineReader.on('line', function (line) {
+            lineReader.on('line', function(line) {
                 if (line.match(TokenMatch_1.TokenMatch.BEG_COMMENT_TOKEN)) {
                     comment = new Comment_1.Comment();
                     insideComment = true;
                 }
                 if (insideComment) {
-                    commentString += line + '\n';
+                    commentString += line;
                 }
                 if (line.match(TokenMatch_1.TokenMatch.END_COMMENT_TOKEN)) {
                     comment.setComment(commentString);
@@ -30,7 +30,7 @@ var StyleGuideDriverNamespace;
                     insideComment = false;
                 }
             });
-            lineReader.on('close', function () {
+            lineReader.on('close', function() {
                 readJson(sortObject(commentSet));
             });
         }
