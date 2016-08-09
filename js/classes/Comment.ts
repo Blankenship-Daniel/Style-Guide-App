@@ -1,3 +1,5 @@
+/// <reference path="../../typings/node/node.d.ts" />
+
 import {TokenMatch} from './TokenMatch';
 
 export class Comment {
@@ -35,6 +37,8 @@ export class Comment {
             this.code = codeArr[0];
             this.code =
                 this.code.replace(TokenMatch.CODE_REPLACE, '');
+            let escape: any = require('escape-html');
+            this.code = escape(this.code);
         }
     }
 

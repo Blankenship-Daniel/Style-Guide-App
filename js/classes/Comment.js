@@ -27,6 +27,8 @@ class Comment {
             this.code = codeArr[0];
             this.code =
                 this.code.replace(TokenMatch_1.TokenMatch.CODE_REPLACE, '');
+            let escape = require('escape-html');
+            this.code = escape(this.code);
         }
     }
     getSelector() {

@@ -1,15 +1,28 @@
 {
   "name": "styleguide",
   "version": "1.0.0",
-  "description": "Parses through raw sass files and creates a style guide",
+  "description": "Parses through sass files and returns JSON representation",
   "main": "index.js",
   "dependencies": {
-    "node": "^0.0.0"
+    "escape-html": "^1.0.3",
+    "express": "^4.14.0",
+    "fs": "^0.0.2",
+    "node": "^0.0.0",
+    "typescript": "^1.8.10",
+    "typescript-require": "^0.2.9-1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blankenship-Daniel/Style-Guide-App.git"
+  },
   "author": "Daniel Blankenship",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blankenship-Daniel/Style-Guide-App/issues"
+  },
+  "homepage": "https://github.com/Blankenship-Daniel/Style-Guide-App#readme"
 }
